@@ -13,3 +13,14 @@
 5. (b)<br>
    • some set of d distinct inputs is shattered by H
    • any set of d + 1 distinct inputs is not shattered by H
+6. (b)<br>
+7. (e)<br>
+8. (a)<br>
+9. (b)<br>
+10. (a)<br>
+11. (d)<br>
+12. (d)<br>
+13. (b)<br>
+14. (b)<br>
+15. (c)<br>
+16. (b)<br>
