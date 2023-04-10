@@ -5,7 +5,7 @@ filename_1 = 'data.txt'
 filename_2 = 'data-test.txt'
 
 inf = 1000000
-s_array = np.array([-1, 1])
+s_array = np.array([1, -1])
 
 train_size = 192
 train_array = np.ones([train_size, 11])
@@ -37,13 +37,13 @@ opt_s_wob = 0
 opt_theta_wob = 0
 opt_i_wob = 0
 E_in_wob = 0
+opt_s_wob_2 = 0
+opt_theta_wob_2 = 0
+opt_i_wob_2 = 0
 theta_array = np.zeros(train_size)
 theta_array[0] = -inf
 for i in range(10):
     tmp_wob = 1
-    opt_s_wob_2 = 0
-    opt_theta_wob_2 = 0
-    opt_i_wob_2 = 0
     train_array = train_array[train_array[:, i].argsort()]
     for j in range(train_size-1):
         theta_array[j+1] = (train_array[j][i] + train_array[j+1][i]) / 2
@@ -54,31 +54,38 @@ for i in range(10):
                 wrong_data += 1
         for k in range(train_size):
             tmp = wrong_data / train_size
-            tmp_wob_2 = wrong_data / train_size
             if tmp < E_in:
                 E_in = tmp
                 opt_theta = theta_array[k]
                 opt_s = s_array[j]
                 opt_i = i
-            if tmp_wob_2 < tmp_wob:
-                tmp_wob = tmp_wob_2
+            elif tmp == E_in and s_array[j] * theta_array[k] < opt_s * opt_theta:
+                E_in = tmp
+                opt_theta = theta_array[k]
+                opt_s = s_array[j]
+                opt_i = i
+            if tmp < tmp_wob:
+                tmp_wob = tmp
                 opt_theta_wob_2 = theta_array[k]
                 opt_s_wob_2 = s_array[j]
                 opt_i_wob_2 = i
+            elif tmp == tmp_wob and s_array[j] * theta_array[k] < opt_s_wob_2 * opt_theta_wob_2:
+                tmp_wob = tmp
+                opt_theta_wob_2 = theta_array[k]
+                opt_s_wob_2 = s_array[j]
+                opt_i_wob_2 = i    
             if train_array[k][10] == s_array[j]:
                 wrong_data += 1
             else:
                 wrong_data -= 1
-    if tmp_wob > E_in_wob:
-        E_in_wob = tmp_wob
-        opt_i_wob = opt_i_wob_2
-        opt_s_wob = opt_s_wob_2
-        opt_theta_wob = opt_theta_wob_2
+        if tmp_wob > E_in_wob:
+            E_in_wob = tmp_wob
+            opt_i_wob = opt_i_wob_2
+            opt_s_wob = opt_s_wob_2
+            opt_theta_wob = opt_theta_wob_2
 print(E_in)
 print(E_in_wob)
 print(E_in_wob - E_in)
-print(opt_i, opt_s, opt_theta)
-print(opt_i_wob, opt_s_wob, opt_theta_wob)
 
 test_array = test_array[test_array[:, opt_i].argsort()]
 wrong_data = 0

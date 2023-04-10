@@ -16,10 +16,10 @@ with open(filename_1) as file:
         a += 1
 file.close()
 
-i = 9
+i = 5
 E_in = 1
 opt_theta = 0
-opt_s = 0
+opt_s = -1
 train_array = train_array[train_array[:, i].argsort()]
 wrong_data = 0
 for k in range(train_size):
@@ -31,6 +31,11 @@ for k in range(train_size-1):
         E_in = tmp
         opt_theta = k
         opt_s = -1
+    elif tmp == E_in and -1 * (train_array[k-1][i] + train_array[k][i]) < opt_s * (train_array[opt_theta-1][i] + train_array[opt_theta][i]):
+        E_in = tmp
+        opt_theta = k
+        opt_s = -1
+        opt_i = i
     if train_array[k][10] == s_array[0]:
         wrong_data += 1
     else:
@@ -45,6 +50,11 @@ for k in range(train_size):
         E_in = tmp
         opt_theta = k
         opt_s = 1
+    elif tmp == E_in and 1 * (train_array[k-1][i] + train_array[k][i]) < opt_s * (train_array[opt_theta-1][i] + train_array[opt_theta][i]):
+        E_in = tmp
+        opt_theta = k
+        opt_s = 1
+        opt_i = i
     if train_array[k][10] == s_array[1]:
         wrong_data += 1
     else:

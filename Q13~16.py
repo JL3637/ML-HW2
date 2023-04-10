@@ -1,7 +1,7 @@
 import numpy as np
 import random
 
-size = 128
+size = 2
 test = 10000
 r = 0.2
 x_array = np.zeros(size)
@@ -40,6 +40,10 @@ for i in range(test):
         for k in range(size):
             tmp = wrong_data / size
             if tmp < E_in:
+                E_in = tmp
+                opt_s = s_array[j]
+                opt_theta = theta_array[k]
+            if tmp == E_in and s_array[j] * theta_array[k] < opt_s * opt_theta:
                 E_in = tmp
                 opt_s = s_array[j]
                 opt_theta = theta_array[k]
