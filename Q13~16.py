@@ -55,5 +55,3 @@ for i in range(test):
     E_out_minus_E_in[i] = E_out - E_in
 
 print(np.mean(E_out_minus_E_in))
-    
-    
