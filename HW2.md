@@ -1,6 +1,7 @@
 # Homework 2
 1. (d)<br>
-   <img src="./Q1.jpg" style="zoom:175%" /><br>
+   <img src="./Q1.jpg" style="zoom:200%" /><br>
+   <div style="page-break-after: always;"></div>
 2. (a)<br>
    Prove: There is two upper bound for d_vc, one is depend on the dimension of x which is d_vc <= 6210 + 1, and the other one is depend on the number of perceptrons, since one perceptron can implement one dichotomy, we can use 2^N <= 1126 to find out d_vc <= lg(1126). And it is obvious that d_vc <= lg(1126) is a tighter bound.
 3. (e)<br>
@@ -12,13 +13,20 @@
    (e) d_vc = 3, since no set of 4 points can be fully shattered. We can label four extreme points with P_top, P_down, P_left, P_right. Assuming P_top_y - P_down_y > P_right_x - P_left_x, then P_top and P_down can't be labeled positively while P_left and P_right are labeled negatively.<br>
 4. (b)<br>
    <img src="./Q4.jpg" style="zoom:175%" /><br>
+   <div style="page-break-after: always;"></div>
 5. (b)<br>
-   • some set of d distinct inputs is shattered by H<br>
-   • any set of d + 1 distinct inputs is not shattered by H<br>
+   • Some set of d + 1 distinct inputs is not shattered by H<br>
+   • Any set of d + 1 distinct inputs is not shattered by H<br>
 6. (b)<br>
    <img src="./Q6.jpg" style="zoom:175%" /><br>
 7. (e)<br>
-   
+   Explain:<br>
+   (a) for poisson distribution, it's mean = λ, so x_bar is the maximum likelihood estimate of λ<br>
+   (b) for Gaussian distribution, it's mean = μ, so x_bar is the maximum likelihood estimate of μ<br>
+   (c) for Laplace distribution, it's mean = μ, so x_bar is the maximum likelihood estimate of μ<br>
+   (d) for geometric distribution, it's mean = 1/θ, so 1/x_bar is the maximum likelihood estimate of θ<br>
+   Hence every choice is correct.<br>
+   <div style="page-break-after: always;"></div>
 8. (a)<br>
    <img src="./Q8.jpg" style="zoom:175%" /><br>
 9. (b)<br>
@@ -29,6 +37,7 @@
     <img src="./Q11.jpg" style="zoom:175%" /><br>
 12. (d)<br>
     <img src="./Q12.jpg" style="zoom:175%" /><br>
+    <div style="page-break-after: always;"></div>
 13. (b)<br>
 14. (b)<br>
 15. (c)<br>
@@ -95,11 +104,13 @@ print(np.mean(E_out_minus_E_in))
 
 ```
 <br>
+<div style="page-break-after: always;"></div>
 17. (c)<br>
 18. (e)<br>
 19. (d)<br>
-20. (c)<br>
+20. (b)<br>
 <br>
+
 ```Python
 import numpy as np
 import random
